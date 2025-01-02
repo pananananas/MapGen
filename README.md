@@ -8,6 +8,8 @@ Reddit:
 - r/FantasyMaps
 - r/imaginarymaps
 
+[Fantasy maps](https://dnd-maps.com/page/3/)
+
 ## TODO:
 - [ ] Zbadanie różnych modeli dyfuzyjnych
 - [ ] Fine tuning modelu na danych z reddita
@@ -15,4 +17,4 @@ Reddit:
 - [ ] Testowanie generowania opisu rzeczywistej mapy, aby lepiej nakierowywać dyfuzję na to jaki teren jest na mapie.
 - [ ] Testowanie różnych stylów generowanych map.
 - [ ] Sprawić aby mapy były jak najbardziej użyteczne pod DnD.
-- [ ] Demo Streamlit
+- [ ] Demo Streamlit    
