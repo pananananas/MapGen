@@ -2,13 +2,13 @@
 
 ## Data:
 Reddit:
-- r/dndmaps
-- r/mapmaking
-- r/DnDMapsSubmissions
-- r/FantasyMaps
-- r/imaginarymaps
-
-[Fantasy maps](https://dnd-maps.com/page/3/)
+- [ ] r/dndmaps
+- [ ] r/mapmaking
+- [ ] r/DnDMapsSubmissions
+- [ ] r/FantasyMaps
+- [ ] r/imaginarymaps
+Other:
+- [ ] [Fantasy maps](https://dnd-maps.com/page/3/)
 
 ## TODO:
 - [ ] Zbadanie różnych modeli dyfuzyjnych
