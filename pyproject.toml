@@ -1,0 +1,15 @@
+[project]
+name = "mapgen"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "requests",
+    "tqdm",
+    "zstandard",
+    "typing",
+    "datetime",
+    "mflux>=0.4.1",
+]
