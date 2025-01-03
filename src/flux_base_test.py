@@ -1,5 +1,6 @@
 from mflux import Flux1, Config
 import random
+
 image_path = "data/maps/map.png"
 
 flux = Flux1.from_alias(
@@ -23,7 +24,7 @@ for strength in strengths:
             guidance=2.0,
         )
     )
-    image.save(path=f"data/maps/map_{strength}.png")
+    image.save(path=f"data/maps/flux_base/map_{strength}.png")
 
 
 
