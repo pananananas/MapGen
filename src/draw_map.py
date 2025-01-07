@@ -335,6 +335,7 @@ if __name__ == "__main__":
 
     # Save the figure with 1024x1024 pixels and 300 DPI
     fig.savefig('data/maps/map.png', 
-                dpi=300,
-                bbox_inches='tight',
-                pad_inches=0)
+        dpi=300,
+        bbox_inches='tight',
+        pad_inches=0
+    )
