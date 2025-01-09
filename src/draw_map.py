@@ -24,19 +24,19 @@ class MapColorPalettes:
     }
 
     DARK = {
-        'water': ('#1a237e', 0.4),  # Dark blue
+        'water': ('#b71c1c', 0.4),  # Dark red
         'green': ('#1b5e20', 0.4),  # Dark green
         'forest': ('#004d40', 0.4),  # Darker green
         'farmland': ('#33691e', 0.3),  # Olive green
         'residential': ('#424242', 0.3),  # Dark gray
         'commercial': ('#e65100', 0.3),  # Dark orange
         'industrial': ('#3e2723', 0.3),  # Dark brown
-        'buildings': ('#b71c1c', 0.4),  # Dark red
+        'buildings': ('#101010', 0.4),  # Dark gray
         'leisure': ('#880e4f', 0.4),  # Dark pink
         'main_roads': ('#fafafa', 1.0),  # Light gray
-        'secondary_roads': ('#e0e0e0', 1.0),  # Lighter gray
+        'secondary_roads': ('#C28A4E', 1.0),  # Orange
         'pedestrian': ('#bdbdbd', 0.5),  # Medium gray
-        'railway': ('#ffffff', 1.0),  # White
+        'railway': ('#C28A4E', 1.0),  # Orange
         'amenities': ('#ce93d8', 0.6),  # Light purple
         'background': '#263238'  # Dark blue-gray
     }
@@ -253,7 +253,7 @@ class OSMMapGenerator:
         
         return features
 
-    def plot_map(self, features):
+    def plot_map(self, features, south, west, north, east):
         """Create a detailed visualization of the map features"""
         dpi = 300
         fig = plt.figure(figsize=(8, 8), dpi=dpi, facecolor=self.color_palette['background'])
@@ -274,34 +274,35 @@ class OSMMapGenerator:
             color, alpha = self.color_palette['main_roads']
             for coords in features['main_roads']:
                 coords_array = np.array(coords)
-                ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=2)
+                ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=3)
         
         if features['secondary_roads']:
             color, alpha = self.color_palette['secondary_roads']
             for coords in features['secondary_roads']:
                 coords_array = np.array(coords)
-                ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=1)
+                ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=2)
         
-        if features['pedestrian']:
-            color, alpha = self.color_palette['pedestrian']
-            for coords in features['pedestrian']:
-                coords_array = np.array(coords)
-                ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=0.5, linestyle='--')
+        # if features['pedestrian']:
+        #     color, alpha = self.color_palette['pedestrian']
+        #     for coords in features['pedestrian']:
+        #         coords_array = np.array(coords)
+                # ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=0.5, linestyle='--')
         
-        if features['railway']:
-            color, alpha = self.color_palette['railway']
-            for coords in features['railway']:
-                coords_array = np.array(coords)
-                ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=1, linestyle='--')
+        # if features['railway']:
+        #     color, alpha = self.color_palette['railway']
+        #     for coords in features['railway']:
+        #         coords_array = np.array(coords)
+                # ax.plot(coords_array[:, 0], coords_array[:, 1], color=color, linewidth=1, linestyle='--')
         
-        if features['amenities']:
-            color, alpha = self.color_palette['amenities']
-            amenity_coords = np.array(features['amenities'])
-            ax.scatter(amenity_coords[:, 0], amenity_coords[:, 1], c=color, s=10, alpha=alpha)
+        # if features['amenities']:
+        #     color, alpha = self.color_palette['amenities']
+        #     amenity_coords = np.array(features['amenities'])
+            # ax.scatter(amenity_coords[:, 0], amenity_coords[:, 1], c=color, s=10, alpha=alpha)
 
-        # Initialize bounds with the exact coordinates you provided
-        min_lon, max_lon = 17.0500, 17.0700
-        min_lat, max_lat = 51.1050, 51.1150
+        min_lon = west
+        max_lon = east
+        min_lat = south
+        max_lat = north
         
         # Set exact bounds from the coordinates you provided
         ax.set_xlim(min_lon, max_lon)
@@ -316,13 +317,12 @@ class OSMMapGenerator:
         
         return fig
 
-
 if __name__ == "__main__":
 
     south, west = 51.1050, 17.0520
     north, east = 51.1150, 17.0670
 
-    generator = OSMMapGenerator(color_palette=MapColorPalettes.FOREST_REALM)
+    generator = OSMMapGenerator(color_palette=MapColorPalettes.DARK)
 
     print("Fetching map data...")
     data = generator.fetch_map_data(south, west, north, east)
@@ -331,11 +331,6 @@ if __name__ == "__main__":
     features = generator.process_data(data)
 
     print("Creating visualization...")
-    fig = generator.plot_map(features)
+    fig = generator.plot_map(features, south, west, north, east)
 
-    # Save the figure with 1024x1024 pixels and 300 DPI
-    fig.savefig('data/maps/map.png', 
-        dpi=300,
-        bbox_inches='tight',
-        pad_inches=0
-    )
+    fig.savefig('map_dark.png', bbox_inches='tight', pad_inches=0)

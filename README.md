@@ -17,4 +17,4 @@ Other:
 - [ ] Testowanie generowania opisu rzeczywistej mapy, aby lepiej nakierowywać dyfuzję na to jaki teren jest na mapie.
 - [x] Testowanie różnych stylów generowanych map.
 - [ ] Sprawić aby mapy były jak najbardziej użyteczne pod DnD.
-- [ ] Demo Streamlit    
+- [ ] Demo Streamlit
