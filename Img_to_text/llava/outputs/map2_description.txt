@@ -1,0 +1,3 @@
+[INST]  
+Briefly describe the variety of objects and buildings visible in the image, focusing on diversity and notable features. Keep the description concise.
+[/INST] The image presents a detailed map of a city, showcasing a variety of objects and buildings. Notable features include a river cutting through the city, a bridge spanning the river, and a highway running parallel to the river. The map also

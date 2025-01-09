@@ -1,0 +1,3 @@
+[INST]  
+Briefly describe the variety of objects and buildings visible in the image, focusing on diversity and notable features. Keep the description concise.
+[/INST] The image is a detailed map of a city area, showing a variety of objects and buildings. Notable features include a large, open green space, a prominent building labeled "POLITECHNIKA WROCLAWSKA," and several
